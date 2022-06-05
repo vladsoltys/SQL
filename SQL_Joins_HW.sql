@@ -60,16 +60,36 @@ select employee_name, role_name
 from roles 
      inner join roles_employee on roles_employee.role_id=roles.id
      inner join employees on roles_employee.employee_id=employees.id
-where role_name in ('Senior Java developer', 'Junior Java developer', 'Middle Java developer');
+where role_name in ('Junior Python developer', 'Middle Python developer', 'Senior Python developer');
 
-9. Вывести имена и должность всех QA инженеров.
+/*9. Вывести имена и должность всех QA инженеров.*/
+select employee_name, role_name 
+from roles 
+     inner join roles_employee on roles_employee.role_id=roles.id
+     inner join employees on roles_employee.employee_id=employees.id
+where role_name in ('Junior Manual QA engineer', 
+                    'Middle Automation QA engineer', 
+                    'Senior Automation QA engineer',
+                    'Middle Manual QA engineer', 
+                    'Junior Automation QA engineer');
 
 
-10. Вывести имена и должность ручных QA инженеров.
-
-
-11. Вывести имена и должность автоматизаторов QA
-
+/*10. Вывести имена и должность ручных QA инженеров.*/
+select employee_name, role_name 
+from roles 
+     inner join roles_employee on roles_employee.role_id=roles.id
+     inner join employees on roles_employee.employee_id=employees.id
+where role_name in ('Junior Manual QA engineer',  
+                    'Middle Manual QA engineer');
+                   
+/*11. Вывести имена и должность автоматизаторов QA*/
+select employee_name, role_name 
+from roles 
+     inner join roles_employee on roles_employee.role_id=roles.id
+     inner join employees on roles_employee.employee_id=employees.id
+where role_name in ('Middle Automation QA engineer', 
+                    'Senior Automation QA engineer',
+                    'Junior Automation QA engineer');
 
 12. Вывести имена и зарплаты Junior специалистов
  13. Вывести имена и зарплаты Middle специалистов
