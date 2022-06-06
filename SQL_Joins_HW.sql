@@ -67,11 +67,11 @@ select employee_name, role_name
 from roles 
      inner join roles_employee on roles_employee.role_id=roles.id
      inner join employees on roles_employee.employee_id=employees.id
-where role_name in ('Junior Manual QA engineer', 
+where role_name like '%QA%' /*in ('Junior Manual QA engineer', 
                     'Middle Automation QA engineer', 
                     'Senior Automation QA engineer',
                     'Middle Manual QA engineer', 
-                    'Junior Automation QA engineer');
+                    'Junior Automation QA engineer')*/;
 
 
 /*10. Вывести имена и должность ручных QA инженеров.*/
@@ -87,9 +87,9 @@ select employee_name, role_name
 from roles 
      inner join roles_employee on roles_employee.role_id=roles.id
      inner join employees on roles_employee.employee_id=employees.id
-where role_name in ('Middle Automation QA engineer', 
+where role_name like '%Automation QA%' /*in ('Middle Automation QA engineer', 
                     'Senior Automation QA engineer',
-                    'Junior Automation QA engineer');
+                    'Junior Automation QA engineer')*/;
 
 /*12. Вывести имена и зарплаты Junior специалистов*/
 select employee_name, monthly_salary
@@ -154,11 +154,18 @@ from employees
        inner join roles on roles_employee.role_id=roles.id
 where role_name like '%Junior Python developer%';
 
+/*19. Вывести имена и зарплаты Senior Java разработчиков*/
+select employee_name, monthly_salary
+from employees
+       inner join employee_salary on employees.id = employee_salary.employee_id 
+       inner join salary on salary.id = employee_salary.salary_id
+       inner join roles_employee on roles_employee.employee_id=employees.id
+       inner join roles on roles_employee.role_id=roles.id
+where role_name like '%Senior Java developer%';
 
-19. Вывести имена и зарплаты Senior Java разработчиков
-20. Вывести зарплаты Junior QA инженеров
-21. Вывести среднюю зарплату всех Junior специалистов
-22. Вывести сумму зарплат JS разработчиков
+/*20. Вывести зарплаты Junior QA инженеров*/
+/*21. Вывести среднюю зарплату всех Junior специалистов*/
+/*22. Вывести сумму зарплат JS разработчиков*/
 23. Вывести минимальную ЗП QA инженеров
 24. Вывести максимальную ЗП QA инженеров
 25. Вывести количество QA инженеров
